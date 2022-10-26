@@ -1,4 +1,5 @@
 FROM nginx:latest
+RUN yum -y update
 RUN yum install -y python3-pip python3-devel gcc
 RUN alias python=python3
 RUN alias pip=pip3
