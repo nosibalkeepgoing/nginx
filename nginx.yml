@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: nginx
+ namespace: default
+spec:
+ selector:
+   matchLabels:
+    type: nginx
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       type: nginx
+   spec:
+    containers:
+    - name: container
+      image: shtnfo/nginx:latest
+      envFrom:
+      - configMapRef:
+          name: nginx-cm-prod
+      ports:
+      - containerPort: 80
