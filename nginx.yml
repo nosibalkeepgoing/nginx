@@ -16,8 +16,5 @@ spec:
     containers:
     - name: container
       image: shtnfo/nginx:latest
-      envFrom:
-      - configMapRef:
-          name: nginx-cm-prod
       ports:
       - containerPort: 80
